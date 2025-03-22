@@ -1,0 +1,1 @@
+from .buechli_graph import main as main # pyright: ignore[reportUnusedImport]

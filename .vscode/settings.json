@@ -1,0 +1,39 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  // if opend over Workspace File runOnSave must be configured in Workspace json
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        // Run pip install -e . whenever pyproject.toml is saved
+        // to install any new dependencies for an development environment
+        "match": "pyproject\\.toml$",
+        "cmd": "bash -c 'source .venv/bin/activate; pip install -e .; pip install -e .[dev]'"
+      },
+      {
+        // Run whenever any file is saved
+        "match": ".*",
+        "cmd": "echo '${fileBasename}' saved."
+      }
+    ]
+  },
+  "python.analysis.indexing": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.typeCheckingMode": "strict", // "off" | "basic" | "strict"
+  "editor.formatOnSave": true,
+  "ruff.format.preview": true,
+  "ruff.lint.preview": true,
+  "debugpy.showPythonInlineValues": true,
+  "ruff.lineLength": 160,
+  "cSpell.words": [
+    "buechli",
+    "dotenv",
+    "faiss",
+    "FAISS",
+    "ollama",
+    "pgvector"
+  ],
+}

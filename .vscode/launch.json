@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DEBUG current script",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console":"internalConsole", // or "integratedTerminal"
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}/src",
+      // "justMyCode": true
+    },
+    {
+      "name": "DEBUG streamlit app",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": [
+        "run",
+        "${workspaceFolder}/src/buechli_chat/app.py",
+        "--server.port",
+        "8501"
+      ],
+      // "console": "integratedTerminal",
+      "console": "internalConsole",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}/src",
+      // "justMyCode": true
+    }
+  ]
+}

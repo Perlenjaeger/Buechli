@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "buechli-chat"
+version = "0.1"
+description = "A project to chat with Buechli, to get cites and more."
+authors = [
+    { name = "Max Jung", email = "mail@maxjung.tech" },
+    { name = "Sven Förster", email = "sven.foerster@perlenjäger.de" },
+]
+maintainers = [
+    { name = "Max Jung", email = "mail@maxjung.tech" },
+    { name = "Sven Förster", email = "sven.foerster@perlenjäger.de" },
+]
+keywords = [
+    "tutorial",
+    "chat",
+    "pdf",
+    "langchain",
+
+]
+readme = "README.md"
+license = "MIT" # Do whatever you want, just don't sue me
+dependencies = [
+    # pip install -e .
+    "langchain",
+    "langchain-openai",
+    "langchain-ollama",
+    "langchain-community",
+    "langchainhub",
+    "langchain_pinecone",
+    "pypdf",
+    "faiss-gpu-cu12",
+    #"faiss-cpu",
+    "langgraph",
+    "IPython",
+    "ipykernel",
+    "langchain_postgres",
+    "psycopg",
+    "pymupdf",
+    "streamlit",
+    "streamlit_pdf_viewer",
+    "pygraphviz",  # For graph visualization in buechli_graph.py
+]
+[project.optional-dependencies]
+# pip install buechli-chat[develop]
+# or
+# pip install -e .[dev]
+dev = [
+    "ruff",
+    "black",
+]
+
+# if package is installed
+# you can run the commands in the cli
+# buechli-chat
+# buechli-ingest
+[project.scripts]
+buechli-ingest = "ingest:main"
+buechli-chat = "buechli_chat.buechli_graph:main"
+buechli-web = "buechli_chat.web:main"
